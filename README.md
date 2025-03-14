@@ -1,15 +1,3 @@
-### APP TIENDA DE MODA
-
-Este proyecto proporciona un sistema de gestion para una empresa de moda
-implementado con Python Flask y MySQL.
-
-🛠️ Tecnologías Utilizadas
-🔹 Backend: Flask (Python)
-🔹 Base de Datos: MySQL
-🔹 Autenticación y Seguridad: Flask-Login, Flask-Mail, Itsdangerous
-🔹 Frontend: HTML5, CSS3, Bootstrap 5
-🔹 Gestión de Dependencias: Flask SQLAlchemy
-
 ### PASO 1: Crear entorno virtual
 	python -m venv env
 
