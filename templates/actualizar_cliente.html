@@ -1,0 +1,83 @@
+{% extends "base.html" %} 
+
+{% block title %} Actualizar Cliente {% endblock title %}
+
+{% block css %} 
+
+<style>
+    .divider::after,
+    .divider::before {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: #eee;
+    }
+
+    .h-custom {
+      height: calc(100% - 73px);
+    }
+
+    @media (max-width: 450px) {
+      .h-custom {
+        height: 100%;
+      }
+    }
+</style>
+{% endblock css %}
+
+{% block body %}
+<div class="container">
+
+
+    <section class="vh-100">
+        <div class="container-fluid h-custom">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-md-9 col-lg-6 col-xl-5">
+                    <img src="\static\images\clientes.jpg" class="img-fluid" alt=" image">
+                </div>
+                <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                    <form  action="/actualizar_cliente/{{clientes.id_cliente}}" method="post" >
+                        <div class="divider d-flex align-items-center my-4">
+                            <p class="text-center  mx-3 mb-0 display-6">Actualizar Cliente</p>
+                        </div>
+
+                        <!-- nombre_cliente input -->
+                        <div class="form-floating mb-3">
+                            <input type="text" id="nombre_cliente" class="form-control form-control-lg"  placeholder=" "  name="nombre_cliente" required value="{{clientes.nombre_cliente}}">
+                            <label for="nombre_cliente">Nombres y Apellidos</label>
+                        </div>
+
+                        <!-- Salary input -->
+                        <div class="form-floating mb-3">
+                            <select class="form-select" required id="estado" name="estado">
+                                <option value="Activo">Activo</option>
+                                <option value="Inactivo">Inactivo</option>
+                                
+                            </select>
+                            <label for="estado">Forma de Pago </label>
+                        </div>
+                        
+                       
+                        <div class="form-floating mb-3">
+                        <select class="form-select" required  id="nombre_categoria" name="nombre_categoria" >
+                            
+                                {% for d in categorias  %}
+                                <option value="{{d.nombre_categoria}}">{{d.nombre_categoria}}</option>
+                                {% endfor %}
+                          </select>
+                          <label for="floatingSelect">Seleccione Categoria </label>
+                        </div>
+                          
+                       
+
+
+                        <div class="text-center text-lg-start mt-4 pt-2">
+                            <button type="submit" class="btn btn-outline-info btn-lg">Actualizar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock body %}

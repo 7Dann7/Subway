@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}
+<!-- Title content here -->
+{% endblock title %}
+
+{% block body %}
+
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card text-center">
+                <div class="card-body">
+                    <div class="jumbotron jumbotron-fluid">
+                        <h1 class="display-4">Categoria: {% block deptname %} {% endblock deptname %}</h1>
+                        <p class="lead py-1">¡Bienvenido a producto por categoria!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row py-2">
+        <div class="col-md-12 d-flex align-items-center">
+            <div class="card  mb-4 ">
+                {% block img %} {% endblock img %}
+            </div>
+        </div>
+
+        
+    </div>
+
+    
+
+    <hr class="my-4">
+
+    {% block content %}
+    <!-- Content here -->
+    {% endblock content %}
+</div>
+
+{% endblock body %}

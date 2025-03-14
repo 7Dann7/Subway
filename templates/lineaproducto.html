@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+ {% block title %} Linea de Producto {% endblock title %}
+ 
+ {% block body %}
+
+<div class="container mb-5 mt-5 ">
+  <div class="jumbotron text-center">
+    <h1 class="display-4">
+      Linea de Producto
+    </h1>
+    <p class="lead">¡Bienvenido al Panel de control de Linea de Producto (Femenina, Masculina, Infantil, etc.)!</p>
+
+    <a href="/nueva_lineaproducto"
+      ><button class="btn btn-outline-secondary">
+        <i class="fa-solid fa-plus fa-fade"></i> Añadir linea a producto
+      </button></a
+    >
+    <hr class="my-4" />
+  </div>
+
+  <div class="accordion" id="accordionFlushExample">
+    {% for s in sec %}
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button
+          class="btn btn-outline-info accordion-button collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#flush-collapse-{{ s }}"
+          aria-expanded="false"
+          aria-controls="flush-collapse-{{ s }}"
+        >
+          Linea de Producto {{ s }}
+        </button>
+      </h2>
+      <div  id="flush-collapse-{{s}}"class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">
+          <table class="table table-striped caption-top">
+            <thead class="table">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Ref. Producto</th>
+                <th scope="col">Forma de Pago</th>
+                <th scope="col">Colección</th>
+                <th scope="col">Sucursal</th>
+              </tr>
+            </thead>
+            <tbody class="table-group-divider">
+              {% for k in lineaproducto if k.sec_id == s %}
+
+              <tr>
+                <th scope="row">{{ loop.index }}</th>
+                <td>{{ k.id_producto }}</td>
+                <td>{{ k.forma_pago }}</td>
+                <td>{{ k.coleccion }}</td>
+                <td>{{ k.nombre_sucursal}}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="100%" align="center">Linea de Producto {{s}}</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    <hr>
+  </div>
+
+</div>
+{% endblock body %}

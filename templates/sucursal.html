@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{%block title%}
+Sucursales
+{%endblock title%}
+
+
+{% block body %}
+
+
+<div class="container mb-5 mt-5 table-responsive">
+    
+
+    <div class="jumbotron text-center">
+        <h1 class="display-4">Sucursales</h1>
+        <p class="lead">!Bienvenido al Panel de Sucursales !</p>
+        <hr class="my-4">
+      </div>
+
+    <table class="table table-striped caption-top  ">
+        <!--table-success-->
+
+        <thead class="table ">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Sucursal</th>
+            <th scope="col">N° de Sucursal</th>
+            <th scope="col">Capacidad</th>
+            
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            {% for stu in sucursal %}
+          <tr>
+            <th scope="row">{{loop.index}}</th>
+            <th scope="row">{{stu.nombre_sucursal}}</th>
+            <td>{{stu.numero_sala}}</td>
+            <td>{{stu.capacidad}}</td>
+          </tr>
+          {%endfor%}
+
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td colspan="100%" align='center'>
+                   {{ sucursal|length }} Sucursales.
+                </td>
+             </tr>
+        </tfoot>
+      </table>
+</div>
+{%endblock body%}

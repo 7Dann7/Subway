@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+
+ {% block title %} Añadir Linea de Producto {% endblock title %}
+ 
+ {%block css %}
+<style>
+  .divider::after,
+  .divider::before {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #eee;
+  }
+
+  .h-custom {
+    height: calc(100% - 73px);
+  }
+
+  @media (max-width: 450px) {
+    .h-custom {
+      height: 100%;
+    }
+  }
+</style>
+{% endblock css %} 
+
+
+{% block body %}
+
+<div class="container ">
+  <section class="vh-250">
+    <div class="container-fluid h-custom">
+      <div class="row d-flex justify-content-center align-items-center h-250">
+        <div class="col-md-9 col-lg-6 col-xl-5">
+          <img
+            src="\static\images\sub.jpg"
+            class="img-fluid"
+            alt=" image"
+          />
+        </div>
+        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+          <form action="/nueva_lineaproducto" method="post">
+            <div class="divider d-flex align-items-center my-4">
+              <p class="text-center mx-3 mb-0 display-6">Añadir Linea</p>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                id="id"
+                class="form-control form-control-lg"
+                placeholder=" "
+                name="id"
+                required
+              />
+              <label for="id">ID Linea</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <select class="form-select" required id="productos" name="productos">
+                {% for d in productos %}
+                <option value="{{d.id_producto}}">{{d.id_producto}}</option>
+                {% endfor %}
+              </select>
+              <label for="productos">Seleccione un Producto </label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <select class="form-select" required id="forma_pago" name="forma_pago">
+                <option value="Efectivo">Efectivo</option>
+                <option value="Debito">Debito</option>
+                <option value="Transferencia">Transferencia</option>
+                <option value="Credito">Credito</option>
+              </select>
+              <label for="forma_pago">Forma de Pago </label>
+            </div>
+
+            <!-- coleccion input -->
+            <div class="form-floating mb-3">
+              <input
+                type="number"
+                id="coleccion"
+                min="2000"
+                max="2099"
+                step="1"
+                value="2024"
+                class="form-control form-control-lg"
+                placeholder=" "
+                name="coleccion"
+                required
+              />
+              <label for="coleccion">Colección</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <select
+                class="form-select"
+                required
+                id="nombre_sucursal"
+                name="nombre_sucursal"
+              >
+                {% for d in nombre_sucursal %}
+                <option value="{{d.nombre_sucursal}}">{{d.nombre_sucursal}}</option>
+                {% endfor %}
+              </select>
+              <label for="nombre_sucursal">Seleccione Tienda </label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <select class="form-select" required id="sala" name="sala">
+                {% for d in sala %}
+                <option value="{{d.numero_sala}}">{{d.numero_sala}}</option>
+                {% endfor %}
+              </select>
+              <label for="sala">Seleccione Sección </label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <select class="form-select" required id="horario" name="horario">
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+                <option value="E">E</option>
+                <option value="F">F</option>
+                <option value="G">G</option>
+                <option value="H">H</option>
+              </select>
+              <label for="horario">Horario </label>
+            </div>
+
+            <div class="text-center text-lg-start mt-4 pt-2">
+              <button type="submit" class="btn btn-outline-success btn-lg">
+                Añadir Linea
+              </button>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <hr class= "my-5"/>
+</div>
+
+
+
+
+{% endblock body %}

@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{%block title%}
+Instructor
+{%endblock title%}
+
+
+{% block body %}
+
+
+<div class="container mb-5 mt-5 table-responsive">
+    
+
+    <div class="jumbotron text-center">
+        <h1 class="display-4">Empleados </h1>
+        <p class="lead py-1">¡Bienvenido al Panel de control de Empleados!</p>
+        <a href="/nuevo_empleado"><button class="btn  btn-outline-secondary"><i class="fa-solid fa-plus fa-fade"></i>ㅤAñadir Empleadoㅤ</button> </a> 
+        <hr class="my-4">
+    </div>
+
+    <table class="table table-striped caption-top  ">
+        <!--table-success-->
+
+        <thead class="table ">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">N° de Identificación</th>
+            <th scope="col">Nombre y Apellidos</th>
+            <th scope="col">Categoria</th>
+            <th scope="col">Salario</th>
+            <th scope="col" colspan="2" class="text-center">Acciones</th>
+
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            {% for inst in empleado %}
+          <tr>
+            <th scope="row">{{loop.index}}</th>
+            <th scope="row">{{inst.id_empleado}}</th>
+            <td>{{inst.nombre_empleado}}</td>
+            <td>{{inst.nombre_categoria}}</td>
+            <td>{{inst.salario}}</td>
+            
+            <td><a href="/actualizar_empleado/{{inst.id_empleado}}"><button class="btn btn-sm btn-outline-info">Actualizar</button> </a> </td>
+    <td><a href="/eliminar_empleado/{{inst.id_empleado}}"><button onclick="return confirm('Are you sure to Delete Instructor');" class="btn btn-sm btn-outline-danger">Eliminar</button> </a> </td>
+    
+          </tr>
+          {%endfor%}
+
+      
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td colspan="100%" align='center'>
+                   {{ empleado|length }} Registros.
+                </td>
+             </tr>
+        </tfoot>
+      </table>
+</div>
+{%endblock body%}

@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{%block title%}
+Categorias
+{%endblock title%}
+
+
+{% block body %}
+
+
+
+<div class="container mt-5">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <img src="static\images\footlong.png" class="card-img-top" >
+          <div class="card-body">
+            <h5 class="card-title">Footlongs</h5>
+            <p class="card-text">un delicioso conjunto para ti y tu eliges a tu gusto!</p>
+            <a href="/footlongs" class="btn btn-outline-info"><i class="fa-solid fa-arrow-right fa-lg"></i>  Gestionar </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <img src="static\images\derretidos.jpg" class="card-img-top" height="303px" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Derretidos</h5>
+            <p class="card-text">una delicia para disfrutar a cualquier hora!</p>
+            <a href="/Sandwiches" class="btn btn-outline-secondary"><i class="fa-solid fa-arrow-right fa-lg"></i> Gestionar</a>
+
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <img src="static\images\combo.png" class="card-img-top"   height="303px">
+          <div class="card-body">
+            <h5 class="card-title">Combos</h5>
+            <p class="card-text">Elige tu combo favorito pa disfrutar!.</p>
+            <a href="/combos" class="btn btn-outline-success"><i class="fa-solid fa-arrow-right fa-lg"></i> Gestionar</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    
+
+    <div class="row">
+      
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <img src="static\images\bebidas.jpg" class="card-img-top" height="303px" >
+          <div class="card-body">
+            <h5 class="card-title">Bebidas</h5>
+            <p class="card-text">Elige tu bebida favorita para acompañar!.</p>
+            <a href="/bebidas" class="btn btn-outline-primary"><i class="fa-solid fa-arrow-right fa-lg"></i> Gestionar</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <img src="static\images\snacks.jpg" class="card-img-top" height="303px">
+          <div class="card-body">
+            <h5 class="card-title">Snacks</h5>
+            <p class="card-text">Un acompañamiento para la ocasion</p>
+            <a href="/Snacks" class="btn btn-outline-info"><i class="fa-solid fa-arrow-right fa-lg"></i> Gestionar</a>
+          </div>
+        </div>
+      </div>
+
+      
+  </div>
+{%endblock body%}

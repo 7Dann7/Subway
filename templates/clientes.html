@@ -1,0 +1,99 @@
+{% extends "base.html" %} {%block title%} Home {%endblock title%} {% block body
+%}
+
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-header text-left ">
+        Bienvenido, <span class="badge rounded-pill text-bg-primary p-1">{{ clientes.nombre_cliente }}</span>
+        
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-3">
+                <!-- Student Image -->
+                <img src="static\images\clientes.jpg" class="img-fluid rounded-circle" alt="Student Image" />
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-7">
+                <div class="jumbotron ">
+                  <p class="card-text font-weight-light ">
+                    ID : {{ clientes.id_cliente }}
+                  </p>
+                    <p class="card-text font-weight-light ">
+                        Categoria: {{ clientes.categorias.nombre_categoria }}
+                    </p>
+                    <p class="card-text font-weight-light ">
+                        Asesor: {{ clientes.asesor.empleados.nombre_empleado if clientes.asesor else "N/A" }}
+                    </p>
+                    <p class="card-text font-weight-light mb-0">
+                        Total : {{ clientes.estado }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+  <hr class="my-4" />
+  
+  <div class="accordion" id="accordionFlushExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button
+          class="btn btn-outline-info accordion-button collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#flush-collapse-s"
+          aria-expanded="false"
+          aria-controls="flush-collapse-s"
+        >
+          <h5 class="">Mis Productos</h5>
+        </button>
+      </h2>
+      <div
+        id="flush-collapse-s"
+        class="accordion-collapse collapse show"
+        data-bs-parent="#accordionFlushExample"
+      >
+        <div class="accordion-body">
+          <table class="table table-striped caption-top">
+            <thead class="table">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Referencia</th>
+                <th scope="col">Linea de Producto</th>
+                <th scope="col">Tendencia</th>
+                <th scope="col">Año</th>
+                <th scope="col">Sección</th>
+              </tr>
+            </thead>
+            <tbody class="table-group-divider">
+              {% for k in courses_taken %}
+
+              <tr>
+                <th scope="row">{{ loop.index }}</th>
+                <td>{{ k.id_producto }}</td>
+                <td>{{ k.sec_id}}</td>
+                <td>{{ k.forma_pago }}</td>
+                <td>{{ k.coleccion }}</td>
+                <td>{{ k.estado_pedido}}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="100%" align="center">
+                  {{courses_taken|length ~ " Total Seleccionados."}}
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{%endblock body%}

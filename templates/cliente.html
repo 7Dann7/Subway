@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{%block title%}
+Clientes
+{%endblock title%}
+
+
+{% block body %}
+
+
+<div class="container mb-5 mt-5 table-responsive">
+    
+
+    <div class="jumbotron text-center">
+        <h1 class="display-4">Clientes  </h1>
+        <p class="lead">¡Bienvenido al Panel de Clientes! </p>
+        <a href="/nuevo_cliente"><button class="btn  btn-outline-secondary"><i class="fa-solid fa-plus fa-fade"></i>ㅤAñadir Cliente</button> </a> 
+        <hr class="my-4">
+      </div>
+
+    <table class="table table-striped caption-top  ">
+        <!--table-success-->
+
+        <thead class="table ">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Identificación</th>
+            <th scope="col">Nombres y Apellidos</th>
+            <th scope="col">Categoria</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Empleado</th>
+            <th scope="col" colspan="2" class="text-center">Acciones</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            {% for stu in clientes %}
+          <tr>
+            <th scope="row">{{loop.index}}</th>
+            <th scope="row">{{stu.id_cliente}}</th>
+            <td>{{stu.nombre_cliente}}</td>
+            <td>{{stu.nombre_categoria}}</td>
+            <td>{{stu.estado}}</td>
+            <td>{{ stu.asesor.empleados.nombre_empleado if stu.asesor else "N/A" }}</td>
+            <td><a href="/actualizar_cliente/{{stu.id_cliente}}"><button class="btn btn-sm btn-outline-info">Actualizar</button> </a> </td>
+    <td><a href="/eliminar_cliente/{{stu.id_cliente}}"><button onclick="return confirm('Are you sure to Delete Instructor');" class="btn btn-sm btn-outline-danger">Eliminar</button> </a> </td>
+    
+          </tr>
+          {%endfor%}
+
+      
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td colspan="100%" align='center'>
+                   {{ clientes|length }} Registros.
+                </td>
+             </tr>
+        </tfoot>
+      </table>
+</div>
+{%endblock body%}

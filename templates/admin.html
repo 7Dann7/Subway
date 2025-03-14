@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{%block title%}
+Admin
+{%endblock title%}
+
+
+{% block body %}
+
+
+<div class="container mt-5">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card mb-4">
+          <img src="static\images\categorias.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Categorias</h5>
+            <p class="card-text">Informacion de cada categoria de producto</p>
+            <a href="/categorias" class="btn btn-outline-info">Gestión de categorias</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card mb-4">
+          <img src="static\images\empleados.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Empleados</h5>
+            <p class="card-text">Información de cada empleado en la tienda</p>
+            <a href="/empleado" class="btn btn-outline-primary">Gestión de Empleados</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card mb-4">
+          <img src="static\images\clientes.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Clientes</h5>
+            <p class="card-text">Información de los clientes la tienda.</p>
+            <a href="/cliente" class="btn btn-outline-secondary">Gestión de Clientes</a>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card mb-4">
+          <img src="static\images\productos.jpg"  height="359px"class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Linea de Producto</h5>
+            <p class="card-text">Información la linea de cada producto en la tienda</p>
+            <a href="/lineaproducto" class="btn btn-outline-success">Gestión de linea</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3">
+        
+      </div>
+
+      <div class="col-md-6">
+        <div class="card mb-4">
+          <img src="static\images\sucursales.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Sucursales</h5>
+            <p class="card-text">Información y control de la tienda</p>
+            <a href="/sucursal" class="btn btn-outline-info">Control de venta</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        
+      </div>
+
+    </div>
+  </div>
+{%endblock body%}
